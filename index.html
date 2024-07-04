@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stworka | Верстка виджета</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="circularProgress.css" />
+</head>
+
+<body>
+    <main>
+        <div id="modeInfo">Mode: HTML + CSS</div>
+        <div class="widgetWrapper">
+            <div id="widgetFigmaImage"></div>
+            <div class="widget" id="widget">
+                <div class="progress">
+                    <svg width="60" height="60" viewBox="0 0 60 60" class="circular-progress">
+                        <circle class="bg"></circle>
+                        <circle class="fg"></circle>
+                    </svg>
+                    <div class="progressNumber">
+                        0/7
+                    </div>
+                </div>
+                <div class="middle">
+                    <div class="tag">Чеклист</div>
+                    <div class="title">Выполнено: 0 из 7 действий</div>
+                    <div class="subtitle">Следующее действие: Созвониться с клиентом до 23.05.24 12:00</div>
+                </div>
+                <button>Открыть чеклист</button>
+            </div>
+        </div>
+        <br />
+        <button onclick="toggleMode(event)">Toggle Figma/HTML</button>
+    </main>
+    <!-- Скрипт для отображения картинки из Figma-->
+    <script>
+        var TheMode = 'html';
+        function toggleMode(event) {
+            event.preventDefault();
+            if (TheMode === 'html') {
+                TheMode = 'figma';
+                document.getElementById('modeInfo').innerHTML = 'Mode: Figma image';
+                document.getElementById('widget').style.opacity = 0;
+                document.getElementById('widgetFigmaImage').style.display = 'block';
+            }
+            else {
+                TheMode = 'html';
+                document.getElementById('modeInfo').innerHTML = 'Mode: HTML + CSS';
+                document.getElementById('widget').style.opacity = 1;
+                document.getElementById('widgetFigmaImage').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
